@@ -23,12 +23,6 @@ cd terraform-nextjs-ecs/terraform
 ./deploy.sh
 ```
 
-## 🔧 Test
-
-http://ecs-nodejs-app-dev-load-balancer-1288290033.us-east-1.elb.amazonaws.com:3000/
-
-![Output](./app/pages/page-example.png)
-
 ## Output Example
 ```
 Apply complete! Resources: 35 added, 0 changed, 0 destroyed.
@@ -49,6 +43,12 @@ Done!
 Cleaning up plan file
 ----------------------------------------
 ```
+## 🔧 Test you alb_url on port 3000
+
+http://ecs-nodejs-app-dev-load-balancer-1288290033.us-east-1.elb.amazonaws.com:3000
+
+![Output](./app/pages/page-example.png)
+
 
 ## 🤝 Contribuições
 
