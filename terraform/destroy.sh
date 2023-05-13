@@ -8,7 +8,7 @@ fi
 
 terraform destroy -var-file="${ENV}/terraform.tfvars" -auto-approve
 rm -rf .terraform
-
+rm -rf terraform.tfstate*
 echo "----------------------------------------"
 echo "Done!"
 echo "----------------------------------------"

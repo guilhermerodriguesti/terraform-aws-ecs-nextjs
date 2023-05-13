@@ -1,9 +1,9 @@
 resource "aws_ecs_cluster" "this" {
-  name = "${local.app_name}-cluster"
+  name = local.app_name
 }
 
 resource "aws_ecs_task_definition" "this" {
-  family                   = "${local.app_name}-task-definition"
+  family                   = local.app_name
   execution_role_arn       = aws_iam_role.ecs_task_execution_role.arn
   requires_compatibilities = ["FARGATE"]
   network_mode             = "awsvpc"
@@ -23,7 +23,7 @@ resource "aws_ecs_task_definition" "this" {
 }
 
 resource "aws_ecs_service" "this" {
-  name            = "${local.app_name}-service"
+  name            = local.app_name
   task_definition = aws_ecs_task_definition.this.arn
   cluster         = aws_ecs_cluster.this.id
   desired_count   = var.app_count

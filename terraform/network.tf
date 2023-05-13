@@ -3,7 +3,7 @@ data "aws_availability_zones" "available" {}
 resource "aws_vpc" "this" {
   cidr_block = var.cidrblock
 
-  tags = merge({ Name = "${local.app_name}-vpc-ecs" }, local.tags)
+  tags = merge({ Name = "${local.app_name}" }, local.tags)
 }
 
 resource "aws_subnet" "private" {

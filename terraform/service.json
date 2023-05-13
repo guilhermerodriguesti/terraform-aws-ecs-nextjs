@@ -1,0 +1,30 @@
+{
+    "task_definition": "ecs-nodejs-app-dev",
+    "load_balancers": [
+      {
+        "target_group_arn": "arn:aws:elasticloadbalancing:us-east-1:134916360354:targetgroup/ecs-nodejs-app-dev/3ab70b6b2e99b909",
+        "container_name": "ecs-nodejs-app-dev",
+        "container_port": 80
+      }
+    ],
+    "desired_count": 2,
+    "launch_type": "FARGATE",
+    "platform_version": "1.4.0",
+    "network_configuration": {
+      "awsvpcConfiguration": {
+        "subnets": [
+          "subnet-01a371b3bfd49daa6",
+          "subnet-0f9f08ce5f34a3020"
+        ],
+        "securityGroups": [
+          "sg-056e3f9378887a812"
+        ],
+        "assignPublicIp": "ENABLED"
+      }
+    },
+    "health_check_grace_period_seconds": 60,
+    "deployment_configuration": {
+      "maximumPercent": 200,
+      "minimumHealthyPercent": 50
+    }
+  }

@@ -1,5 +1,5 @@
 resource "aws_security_group" "lb" {
-  name        = "${local.app_name}-load-balancer-security-group"
+  name        = "SG_LB_${local.app_name}"
   description = "controls access to the ALB"
   vpc_id      = aws_vpc.this.id
 
@@ -19,7 +19,7 @@ resource "aws_security_group" "lb" {
 }
 
 resource "aws_security_group" "ecs_tasks" {
-  name        = "${local.app_name}-ecs-tasks-security-group"
+  name        = "SG_TG_${local.app_name}"
   description = "allow inbound access from the ALB only"
   vpc_id      = aws_vpc.this.id
 

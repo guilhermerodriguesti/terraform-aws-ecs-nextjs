@@ -1,6 +1,6 @@
 locals {
   app_name                = "${var.app_name}-${var.env}"
-  container_name          = "${local.app_name}-container"
+  container_name          = local.app_name
   autoscaling_resource_id = "service/${aws_ecs_cluster.this.name}/${aws_ecs_service.this.name}"
 
   tags = {

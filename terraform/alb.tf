@@ -1,11 +1,11 @@
 resource "aws_alb" "this" {
-  name            = "${local.app_name}-load-balancer"
+  name            = local.app_name
   subnets         = aws_subnet.public.*.id
   security_groups = [aws_security_group.lb.id]
 }
 
 resource "aws_alb_target_group" "this" {
-  name        = "${local.app_name}-target-group"
+  name        = local.app_name
   port        = 80
   protocol    = "HTTP"
   vpc_id      = aws_vpc.this.id

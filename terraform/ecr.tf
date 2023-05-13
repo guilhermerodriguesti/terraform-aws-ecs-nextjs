@@ -1,5 +1,5 @@
 resource "aws_ecr_repository" "this" {
-  name = "${local.app_name}-repository"
+  name = local.app_name
 }
 
 resource "null_resource" "docker" {
@@ -9,7 +9,7 @@ resource "null_resource" "docker" {
 
   provisioner "local-exec" {
     working_dir = var.app_folder
-    command     = "$(aws ecr get-login --no-include-email --region ${var.region})"
+    command     = "$(aws ecr get-login-password | docker login --username AWS --password-stdin  ${aws_ecr_repository.this.repository_url})"
   }
 
   provisioner "local-exec" {
